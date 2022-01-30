@@ -1,0 +1,28 @@
+.main, .container_map,.delivery, .delivery li{
+    display: flex;
+}
+.main .aside{
+    flex-grow: 1;
+}
+.main .article{
+    flex-grow: 8;
+}
+
+.delivery{
+    flex-grow: 2;
+}
+
+.delivery li{
+    align-items: center;
+    justify-content: center;
+}
+
+.deliveryzone_name{
+    display: inline-block;
+}
+.deliveryzone_color{
+    display: inline-block;
+    min-width: 32px;
+    min-height: 32px;
+    border-radius: 50%;
+}
