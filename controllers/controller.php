@@ -32,18 +32,17 @@ class controller
         return $_POST;
     }
 
-    function getRequest() :string{
+    function getRequest() :void{
 
         $this->template_name = basename($_SERVER['REQUEST_URI']);
     }
-    function getQueryString() :string{
+    function getQueryString() :void{
         $this->querystring = $_SERVER['QUERY_STRING'];
     }
 
     function getTemplate() : string {
-
-        //var_dump($this->_vars);
-
+       // var_dump($this->_vars);
+        $arrResult=[];
        if(isset($this->_vars['app']))
         {
             require_once $_SERVER['DOCUMENT_ROOT']."/models/".$this->_vars['app'].".php";
@@ -52,11 +51,7 @@ class controller
             $method=$this->_vars['method'];
             $arrResult=$model->$method();
         }
-
-
-
-        isset($this->_vars['page']) ? $this->template_name=$this->_vars['page'] :  'default.php';
-
+        isset($this->_vars['page']) ? $this->template_name=$this->_vars['page'] :  $this->template_name='default.php';
      //   $tmplPath = $this->template_name==="index.php" ? "templates/default.php" : "templates/$this->template_name";
         $tmplPath ="templates/$this->template_name";
 
@@ -64,7 +59,7 @@ class controller
             $view=new view();
             $data=$view->getTemplate($tmplPath, $arrResult);
         } else {
-            throw new Exception("Шаблон <strong>{$this->template_name}</strong> не найден");
+            throw new Exception("Шаблон {$this->template_name} не найден");
         }
         //$data=$tmplPath;
 

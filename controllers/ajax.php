@@ -1,5 +1,9 @@
 <?php
+include_once $_SERVER['DOCUMENT_ROOT']."/config.php";
+
 require_once $_SERVER['DOCUMENT_ROOT']."/models/delivery.php";
+require_once $_SERVER['DOCUMENT_ROOT']."/models/kladr.php";
+
 $res=GetInput();
 
 echo json_encode($res);
@@ -62,4 +66,13 @@ function chng_deliveryzone_price($data)
 
 
     return $arr_n;
+}
+
+function getKladr($data){
+
+    $kladr= new Kladr();
+
+    $res=$kladr->getStreet($data['adress']);
+
+    return $res;
 }
