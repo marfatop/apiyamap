@@ -7,10 +7,11 @@ class chkkatalog
     public function __construct()
     {
         $this->file_domino_path = "templates/assets/stores-data.csv";
-    //    $this->file_imshop_path = "templates/assets/catalog.xml";
-     //   $this->file_imshop_today_path = "templates/assets/catalog_3003.xml";
-            $this->file_imshop_path = "templates/assets/catalog_0405.xml";
-           $this->file_imshop_today_path = "templates/assets/catalog_0505.xml";
+        //    $this->file_imshop_path = "templates/assets/catalog.xml";
+        //   $this->file_imshop_today_path = "templates/assets/catalog_3003.xml";
+        $this->file_imshop_path = "templates/assets/catalog_0405.xml";
+        $this->file_imshop_yestoday_path = "templates/assets/catalog_0505.xml";
+        $this->file_imshop_today_path = "templates/assets/catalog_0605.xml";
     }
 
     function getImshopCatalog($url){
